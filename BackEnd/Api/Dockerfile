@@ -2,8 +2,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-ENV DOTNET_MSBUILD_DISABLEFALLBACKFOLDER=true
-
 COPY ["BackEnd.sln", "."]
 COPY ["Api/Api.csproj", "Api/"]
 COPY ["Application/Application.csproj", "Application/"]
