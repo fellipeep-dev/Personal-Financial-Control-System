@@ -2,6 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
+ENV DOTNET_MSBUILD_DISABLEFALLBACKFOLDER=true
+
 COPY ["BackEnd.sln", "."]
 COPY ["Api/Api.csproj", "Api/"]
 COPY ["Application/Application.csproj", "Application/"]
@@ -12,7 +14,7 @@ RUN dotnet restore "BackEnd.sln" -r linux-musl-x64
 
 COPY . .
 
-RUN dotnet publish "Api/Api.csproj" -c Release -o /app/publish /p:PublishSingleFile=false /p:PublishTrimmed=true -r linux-musl-x64
+RUN dotnet publish "Api/Api.csproj" --no-restore -c Release -o /app/publish /p:PublishSingleFile=false /p:PublishTrimmed=true -r linux-musl-x64
 
 # stage runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS runtime
