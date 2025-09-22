@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working_directory: ./BackEnd
+        working-directory: ./BackEnd
 
     services:
       postgres:
