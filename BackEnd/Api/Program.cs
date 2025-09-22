@@ -1,7 +1,7 @@
-using Infrastructure.Database;
-using Microsoft.EntityFrameworkCore;
 using Application;
 using Infrastructure;
+using Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
