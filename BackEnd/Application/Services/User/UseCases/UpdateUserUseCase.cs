@@ -21,6 +21,6 @@ namespace Application.Services.User.UseCases
 
             await _userRepository.UpdateUserAsync(userEntity);
         }
-        
+
     }
 }

@@ -4,6 +4,7 @@ namespace Application.Dtos.User
 {
     public class UpdateUserDto
     {
+        [Required(ErrorMessage = "Id is required")]
         public Guid Id { get; set; }
 
         [StringLength(100, ErrorMessage = "Name can't be longer than 100 characters")]

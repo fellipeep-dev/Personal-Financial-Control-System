@@ -3,24 +3,24 @@ using Domain.User;
 
 namespace Application.Services.User
 {
-  public interface ICreateUserUseCase
-  {
-    Task ExecuteAsync(CreateUserDto createUserDto);
-  }
-  public interface IGetUsersUseCase
-  {
-    Task<IEnumerable<UserEntity>> ExecuteAsync();
-  }
-  public interface IGetUserByIdUseCase
+    public interface ICreateUserUseCase
     {
-    Task<UserEntity> ExecuteAsync(Guid id);
-  }
-  public interface IUpdateUserUseCase
+        Task ExecuteAsync(CreateUserDto createUserDto);
+    }
+    public interface IGetUsersUseCase
     {
-    Task ExecuteAsync(UpdateUserDto updateUserDto);
-  }
-  public interface IDeleteUserUseCase
+        Task<IEnumerable<UserEntity>> ExecuteAsync();
+    }
+    public interface IGetUserByIdUseCase
     {
-    Task ExecuteAsync(Guid id);
-  }
+        Task<UserEntity> ExecuteAsync(Guid id);
+    }
+    public interface IUpdateUserUseCase
+    {
+        Task ExecuteAsync(UpdateUserDto updateUserDto);
+    }
+    public interface IDeleteUserUseCase
+    {
+        Task ExecuteAsync(Guid id);
+    }
 }

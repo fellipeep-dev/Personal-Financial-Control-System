@@ -1,3 +1,4 @@
+using Application.Services.Transaction;
 using Application.Services.User;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,6 +9,7 @@ namespace Application
         public static void AddApplicationModule(this IServiceCollection services)
         {
             services.AddUserModule();
+            services.AddTransactionModule();
         }
     }
 }
