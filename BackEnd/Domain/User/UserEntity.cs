@@ -1,3 +1,4 @@
+using Domain.Transaction;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -22,6 +23,8 @@ namespace Domain.User
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime? UpdatedAt { get; private set; }
+
+        public ICollection<TransactionEntity> Transaction { get; }
 
         private UserEntity() { }
 

@@ -1,3 +1,4 @@
+using Domain.Transaction;
 using Domain.User;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,10 +13,12 @@ namespace Infrastructure.Database
             foreach(var entityType in modelBuilder.Model.GetEntityTypes())
             {
                 var createdAt = entityType.FindProperty("CreatedAt");
-                createdAt.SetDefaultValueSql("CURRENT_TIMESTAMP");
+                if(createdAt != null && createdAt.ClrType == typeof(DateTime))
+                    createdAt.SetDefaultValueSql("CURRENT_TIMESTAMP");
             }
         }
 
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<TransactionEntity> Transactions { get; set; }
     }
 }

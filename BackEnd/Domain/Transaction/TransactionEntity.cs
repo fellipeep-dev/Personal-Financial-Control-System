@@ -1,41 +1,44 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.User;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Transaction
 {
+    public enum TransactionType
+    {
+        Income,
+        Expense
+    }
+
     public class TransactionEntity
     {
         [Key]
         public Guid Id { get; private set; }
 
-        public Guid UserId { get; private set; }
+        public int TotalInCents { get; private set; }
 
-        public decimal Amount { get; private set; }
+        public TransactionType Type { get; private set; }
 
-        public string Description { get; private set; }
-
-        public DateTime TransactionDate { get; private set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime CreatedAt { get; private set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime UpdatedAt { get; private set; }
 
+        public Guid UserId { get; private set; }
+        public UserEntity User { get; private set; }
+
         private TransactionEntity() { }
 
-        public TransactionEntity(Guid userId, decimal amount, string description, DateTime transactionDate)
+        public TransactionEntity(Guid userId, int totalInCents, TransactionType type)
         {
             UserId = userId;
-            Amount = amount;
-            Description = description;
-            TransactionDate = transactionDate;
+            TotalInCents = totalInCents;
+            Type = type;
         }
-        public void Update(decimal? amount, string? description, DateTime? transactionDate)
+        public void Update(int? totalInCents, TransactionType? type)
         {
-            Amount = amount ?? Amount;
-            Description = description ?? Description;
-            TransactionDate = transactionDate ?? TransactionDate;
+            TotalInCents = totalInCents ?? TotalInCents;
+            Type = type ?? Type;
         }
     }
 }
