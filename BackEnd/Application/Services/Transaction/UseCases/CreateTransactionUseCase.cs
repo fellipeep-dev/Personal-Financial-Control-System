@@ -11,6 +11,7 @@ namespace Application.Services.Transaction.UseCases
         {
             var transaction = new TransactionEntity(
                 createTransactionDto.UserId,
+                createTransactionDto.CategoryId,
                 createTransactionDto.TotalInCents,
                 createTransactionDto.Type
             );
