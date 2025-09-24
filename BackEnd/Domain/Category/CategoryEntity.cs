@@ -2,15 +2,15 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Categories
+namespace Domain.Category
 {
-    public enum CategoriesType
+    public enum CategoryType
     {
         INCOME,
         EXPENSE
     }
 
-    public class CategoriesEntity
+    public class CategoryEntity
     {
         [Key]
         public Guid Id { get; private set; }
@@ -19,7 +19,7 @@ namespace Domain.Categories
 
         public int TotalInCents { get; private set; }
 
-        public CategoriesType Type { get; private set; }
+        public CategoryType Type { get; private set; }
 
         public DateTime CreatedAt { get; private set; }
 
@@ -29,9 +29,9 @@ namespace Domain.Categories
         public Guid UserId { get; private set; }
         public UserEntity User { get; private set; }
 
-        private CategoriesEntity() { }
+        private CategoryEntity() { }
 
-        public CategoriesEntity(Guid userId, string name, int totalInCents, CategoriesType type)
+        public CategoryEntity(Guid userId, string name, int totalInCents, CategoryType type)
         {
             UserId = userId;
             Name = name;
@@ -39,7 +39,7 @@ namespace Domain.Categories
             Type = type;
         }
 
-        public void Update(string? name, int? totalInCents, CategoriesType? type)
+        public void Update(string? name, int? totalInCents, CategoryType? type)
         {
             Name = name ?? Name;
             TotalInCents = totalInCents ?? TotalInCents;

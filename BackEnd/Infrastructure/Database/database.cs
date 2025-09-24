@@ -1,3 +1,4 @@
+using Domain.Category;
 using Domain.Transaction;
 using Domain.User;
 using Microsoft.EntityFrameworkCore;
@@ -20,5 +21,6 @@ namespace Infrastructure.Database
 
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<TransactionEntity> Transactions { get; set; }
+        public DbSet<CategoryEntity> Categories { get; set; }
     }
 }
