@@ -6,8 +6,8 @@ namespace Domain.Transaction
 {
     public enum TransactionType
     {
-        Income,
-        Expense
+        Entry,
+        Exit
     }
 
     public class TransactionEntity
