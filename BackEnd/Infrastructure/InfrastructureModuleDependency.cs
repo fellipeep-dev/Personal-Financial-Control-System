@@ -1,5 +1,7 @@
+using Domain.Category;
 using Domain.Transaction;
 using Domain.User;
+using Infrastructure.Repositories.Category;
 using Infrastructure.Repositories.Transaction;
 using Infrastructure.Repositories.User;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,7 @@ namespace Infrastructure
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
     }
 }
