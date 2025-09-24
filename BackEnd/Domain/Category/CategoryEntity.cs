@@ -1,4 +1,5 @@
-﻿using Domain.User;
+﻿using Domain.Transaction;
+using Domain.User;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -28,6 +29,8 @@ namespace Domain.Category
 
         public Guid UserId { get; private set; }
         public UserEntity User { get; private set; }
+
+        public ICollection<TransactionEntity> Transaction { get; }
 
         private CategoryEntity() { }
 

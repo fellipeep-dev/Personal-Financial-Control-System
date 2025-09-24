@@ -1,4 +1,5 @@
-﻿using Domain.User;
+﻿using Domain.Category;
+using Domain.User;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,11 +28,15 @@ namespace Domain.Transaction
         public Guid UserId { get; private set; }
         public UserEntity User { get; private set; }
 
+        public Guid? CategoryId { get; private set; }
+        public CategoryEntity? Category { get; private set; }
+
         private TransactionEntity() { }
 
-        public TransactionEntity(Guid userId, int totalInCents, TransactionType type)
+        public TransactionEntity(Guid userId, Guid? categoryId, int totalInCents, TransactionType type)
         {
             UserId = userId;
+            CategoryId = categoryId;
             TotalInCents = totalInCents;
             Type = type;
         }

@@ -1,3 +1,4 @@
+using Domain.Category;
 using Domain.Transaction;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -25,6 +26,8 @@ namespace Domain.User
         public DateTime? UpdatedAt { get; private set; }
 
         public ICollection<TransactionEntity> Transaction { get; }
+
+        public ICollection<CategoryEntity> Category { get; }
 
         private UserEntity() { }
 
