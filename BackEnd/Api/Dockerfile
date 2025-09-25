@@ -8,17 +8,17 @@ COPY ["Application/Application.csproj", "Application/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
 
-RUN dotnet restore "Api/Api.csproj" --runtime linux-x64
+RUN dotnet restore "Api/Api.csproj" --runtime linux-musl-x64
 
 COPY . .
 
-RUN dotnet publish "Api/Api.csproj" --no-restore -c Release -o /app/publish /p:PublishSingleFile=false /p:PublishTrimmed=true
+RUN dotnet publish "Api/Api.csproj" --no-restore -c Release -o /app/publish /p:PublishSingleFile=false
 
 # stage runtime
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS runtime
 WORKDIR /app
 
-RUN groupadd -r aspnetapp && useradd -r -g aspnetapp aspnetapp
+RUN addgroup -S aspnetapp && adduser -S aspnetapp -G aspnetapp
 USER aspnetapp
 
 ENV ASPNETCORE_URLS=http://+:5000
