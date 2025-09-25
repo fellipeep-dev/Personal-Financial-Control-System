@@ -8,7 +8,7 @@ COPY ["Application/Application.csproj", "Application/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
 
-RUN dotnet restore "BackEnd.sln" --runtime linux-x64
+RUN dotnet restore "Api/Api.csproj" --runtime linux-x64
 
 COPY . .
 
