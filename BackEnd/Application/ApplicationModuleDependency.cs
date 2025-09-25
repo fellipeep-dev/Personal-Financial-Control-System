@@ -1,3 +1,4 @@
+using Application.Services.Category;
 using Application.Services.Transaction;
 using Application.Services.User;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ namespace Application
         {
             services.AddUserModule();
             services.AddTransactionModule();
+            services.AddCategoryModule();
         }
     }
 }

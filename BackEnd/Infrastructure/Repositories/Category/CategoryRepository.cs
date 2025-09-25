@@ -24,13 +24,13 @@ namespace Infrastructure.Repositories.Category
             return await _context.Categories.FindAsync(id);
         }
 
-        public async Task UpdateCategory(CategoryEntity category)
+        public async Task UpdateCategoryAsync(CategoryEntity category)
         {
             _context.Categories.Update(category);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteCategory(CategoryEntity category)
+        public async Task DeleteCategoryAsync(CategoryEntity category)
         {
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();

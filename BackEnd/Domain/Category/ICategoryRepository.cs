@@ -5,7 +5,7 @@
         Task AddCategoryAsync(CategoryEntity category);
         Task<IEnumerable<CategoryEntity>> GetCategoriesAsync();
         Task<CategoryEntity?> GetCategoryByIdAsync(Guid id);
-        Task UpdateCategory(CategoryEntity category);
-        Task DeleteCategory(CategoryEntity category);
+        Task UpdateCategoryAsync(CategoryEntity category);
+        Task DeleteCategoryAsync(CategoryEntity category);
     }
 }
