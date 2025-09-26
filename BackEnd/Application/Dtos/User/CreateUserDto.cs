@@ -14,7 +14,7 @@ namespace Application.Dtos.User
 
         [Required(ErrorMessage = "CPF is required")]
         [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "CPF must be in the format 000.000.000-00")]
-        public string CPF { get; set; }
+        public string Cpf { get; set; }
 
         [Required(ErrorMessage = "BirthDate is required")]
         public DateOnly BirthDate { get; set; }

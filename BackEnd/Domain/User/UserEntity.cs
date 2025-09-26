@@ -14,7 +14,7 @@ namespace Domain.User
 
         public string Email { get; private set; }
 
-        public string CPF { get; private set; }
+        public string Cpf { get; private set; }
 
         public DateOnly BirthDate { get; private set; }
 
@@ -35,7 +35,7 @@ namespace Domain.User
         {
             Name = name;
             Email = email;
-            CPF = cpf;
+            Cpf = cpf;
             BirthDate = birthDate;
             Password = password;
         }
@@ -44,7 +44,7 @@ namespace Domain.User
         {
             Name = name;
             Email = email;
-            CPF = cpf;
+            Cpf = cpf;
             BirthDate = birthDate.Value;
             Password = password;
         }

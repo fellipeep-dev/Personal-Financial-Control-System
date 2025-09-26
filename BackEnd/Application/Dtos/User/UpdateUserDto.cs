@@ -14,7 +14,7 @@ namespace Application.Dtos.User
         public string? Email { get; set; }
 
         [RegularExpression(@"^\d{3}\.\d{3}\.\d{3}-\d{2}$", ErrorMessage = "CPF must be in the format 000.000.000-00")]
-        public string? CPF { get; set; }
+        public string? Cpf { get; set; }
 
         public DateOnly? BirthDate { get; set; }
 

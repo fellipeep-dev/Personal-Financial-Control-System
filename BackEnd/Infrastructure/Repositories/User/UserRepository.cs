@@ -13,7 +13,7 @@ namespace Infrastructure.Repositories.User
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
-        
+
         public async Task<IEnumerable<UserEntity>> GetUsersAsync()
         {
             return await _context.Users.ToListAsync();
@@ -22,6 +22,16 @@ namespace Infrastructure.Repositories.User
         public async Task<UserEntity?> GetUserByIdAsync(Guid id)
         {
             return await _context.Users.FindAsync(id);
+        }
+
+        public async Task<UserEntity?> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<UserEntity?> GetUserByCpfAsync(string cpf)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Cpf == cpf);
         }
 
         public async Task UpdateUserAsync(UserEntity user)

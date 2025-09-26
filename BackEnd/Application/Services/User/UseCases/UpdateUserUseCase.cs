@@ -14,7 +14,7 @@ namespace Application.Services.User.UseCases
             userEntity.Update(
                 updateUserDto.Name ?? userEntity.Name,
                 updateUserDto.Email ?? userEntity.Email,
-                updateUserDto.CPF ?? userEntity.CPF,
+                updateUserDto.Cpf ?? userEntity.Cpf,
                 updateUserDto.BirthDate ?? userEntity.BirthDate,
                 updateUserDto.Password ?? userEntity.Password
             );
