@@ -8,9 +8,9 @@ namespace Application.Services.Category.UseCases
 
         public async Task ExecuteAsync(Guid id)
         {
-            var categoryEntity = await _categoryRepository.GetCategoryByIdAsync(id) ?? throw new Exception("Category not found");
+            var categoryEntity = await _categoryRepository.GetByIdAsync(id) ?? throw new Exception("Category not found");
 
-            await categoryRepository.DeleteCategoryAsync(categoryEntity);
+            await categoryRepository.DeleteAsync(categoryEntity);
         }
     }
 }

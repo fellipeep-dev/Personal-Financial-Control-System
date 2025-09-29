@@ -1,11 +1,8 @@
-﻿namespace Domain.Transaction
+﻿using Domain.Interfaces;
+
+namespace Domain.Transaction
 {
-    public interface ITransactionRepository
+    public interface ITransactionRepository : IRepository<TransactionEntity>
     {
-        Task AddTransactionAsync(TransactionEntity transaction);
-        Task<IEnumerable<TransactionEntity>> GetTransactionsAsync();
-        Task<TransactionEntity?> GetTransactionByIdAsync(Guid id);
-        Task UpdateTransactionAsync(TransactionEntity transaction);
-        Task DeleteTransactionAsync(TransactionEntity transaction);
     }
 }

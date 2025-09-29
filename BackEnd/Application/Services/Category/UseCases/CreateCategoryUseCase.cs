@@ -16,7 +16,7 @@ namespace Application.Services.Category.UseCases
                 createCategoryDto.Type
             );
 
-            await _categoryRepository.AddCategoryAsync(category);
+            await _categoryRepository.AddAsync(category);
         }
     }
 }

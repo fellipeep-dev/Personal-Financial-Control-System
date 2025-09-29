@@ -1,49 +1,20 @@
 using Domain.User;
+using Infrastructure.Abstractions;
 using Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.User
 {
-    public class UserRepository(AppDbContext context) : IUserRepository
+    public class UserRepository(AppDbContext context) : Repository<UserEntity>(context), IUserRepository
     {
-        private readonly AppDbContext _context = context;
-
-        public async Task AddUserAsync(UserEntity user)
+        public async Task<UserEntity?> GetUserByCpfAsync(string cpf)
         {
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<IEnumerable<UserEntity>> GetUsersAsync()
-        {
-            return await _context.Users.ToListAsync();
-        }
-
-        public async Task<UserEntity?> GetUserByIdAsync(Guid id)
-        {
-            return await _context.Users.FindAsync(id);
+            return await _dbSet.FirstOrDefaultAsync(u => u.Cpf == cpf);
         }
 
         public async Task<UserEntity?> GetUserByEmailAsync(string email)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-        }
-
-        public async Task<UserEntity?> GetUserByCpfAsync(string cpf)
-        {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Cpf == cpf);
-        }
-
-        public async Task UpdateUserAsync(UserEntity user)
-        {
-            _context.Users.Update(user);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeleteUserAsync(UserEntity user)
-        {
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
+            return await _dbSet.FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

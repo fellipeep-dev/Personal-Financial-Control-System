@@ -9,14 +9,14 @@ namespace Application.Services.Transaction.UseCases
 
         public async Task ExecuteAsync(UpdateTransactionDto updateTransactionDto)
         {
-            var transactionEntity = await _transactionRepository.GetTransactionByIdAsync(updateTransactionDto.Id) ?? throw new Exception("Transaction not found");
+            var transactionEntity = await _transactionRepository.GetByIdAsync(updateTransactionDto.Id) ?? throw new Exception("Transaction not found");
 
             transactionEntity.Update(
                 updateTransactionDto.TotalInCents ?? transactionEntity.TotalInCents,
                 updateTransactionDto.Type ?? transactionEntity.Type
             );
 
-            await _transactionRepository.UpdateTransactionAsync(transactionEntity);
+            await _transactionRepository.UpdateAsync(transactionEntity);
         }
     }
 }

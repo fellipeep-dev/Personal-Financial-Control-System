@@ -30,7 +30,7 @@ namespace Application.Services.User.UseCases
                 passwordHash
             );
 
-            await _userRepository.AddUserAsync(user);
+            await _userRepository.AddAsync(user);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Application.Services.Transaction.UseCases
 
         public async Task<IEnumerable<TransactionEntity>> ExecuteAsync()
         {
-            return await _transactionRepository.GetTransactionsAsync();
+            return await _transactionRepository.GetAllAsync();
         }
     }
 }

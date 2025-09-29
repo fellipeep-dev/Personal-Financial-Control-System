@@ -9,7 +9,7 @@ namespace Application.Services.Category.UseCases
 
         public async Task ExecuteAsync(UpdateCategoryDto updateCategoryDto)
         {
-            var categoryEntity = await _categoryRepository.GetCategoryByIdAsync(updateCategoryDto.Id) ?? throw new Exception("Transaction not found");
+            var categoryEntity = await _categoryRepository.GetByIdAsync(updateCategoryDto.Id) ?? throw new Exception("Transaction not found");
         
             categoryEntity.Update(
                 updateCategoryDto.Name ?? categoryEntity.Name,
@@ -17,7 +17,7 @@ namespace Application.Services.Category.UseCases
                 updateCategoryDto.Type ?? categoryEntity.Type
             );
 
-            await _categoryRepository.UpdateCategoryAsync(categoryEntity);
+            await _categoryRepository.UpdateAsync(categoryEntity);
         }
     }
 }

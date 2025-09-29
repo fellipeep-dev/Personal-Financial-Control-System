@@ -1,11 +1,8 @@
-﻿namespace Domain.Category
+﻿using Domain.Interfaces;
+
+namespace Domain.Category
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepository<CategoryEntity>
     {
-        Task AddCategoryAsync(CategoryEntity category);
-        Task<IEnumerable<CategoryEntity>> GetCategoriesAsync();
-        Task<CategoryEntity?> GetCategoryByIdAsync(Guid id);
-        Task UpdateCategoryAsync(CategoryEntity category);
-        Task DeleteCategoryAsync(CategoryEntity category);
     }
 }

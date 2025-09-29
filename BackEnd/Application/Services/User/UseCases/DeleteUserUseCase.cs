@@ -8,9 +8,9 @@ namespace Application.Services.User.UseCases
 
         public async Task ExecuteAsync(Guid id)
         {
-            var userEntity = await _userRepository.GetUserByIdAsync(id) ?? throw new Exception("User not found");
+            var userEntity = await _userRepository.GetByIdAsync(id) ?? throw new Exception("User not found");
 
-            await _userRepository.DeleteUserAsync(userEntity);
+            await _userRepository.DeleteAsync(userEntity);
         }
     }
 }

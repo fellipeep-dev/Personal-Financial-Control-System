@@ -6,9 +6,9 @@ namespace Application.Services.Transaction.UseCases
     {
         public async Task ExecuteAsync(Guid id)
         {
-            var transactionEntity = await transactionRepository.GetTransactionByIdAsync(id) ?? throw new Exception("Transaction not found");
+            var transactionEntity = await transactionRepository.GetByIdAsync(id) ?? throw new Exception("Transaction not found");
 
-            await transactionRepository.DeleteTransactionAsync(transactionEntity);
+            await transactionRepository.DeleteAsync(transactionEntity);
         }
     }
 }

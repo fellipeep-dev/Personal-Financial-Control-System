@@ -8,7 +8,7 @@ namespace Application.Services.Transaction.UseCases
 
         public async Task<TransactionEntity> ExecuteAsync(Guid id)
         {
-            return await _transactionRepository.GetTransactionByIdAsync(id) ?? throw new Exception("Transaction not found"); ;
+            return await _transactionRepository.GetByIdAsync(id) ?? throw new Exception("Transaction not found"); ;
         }
     }
 }

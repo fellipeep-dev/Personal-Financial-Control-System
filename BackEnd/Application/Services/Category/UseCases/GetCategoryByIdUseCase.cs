@@ -7,7 +7,7 @@ namespace Application.Services.Category.UseCases
         private readonly ICategoryRepository _categoryRepository = categoryRepository;
         public async Task<CategoryEntity> ExecuteAsync(Guid id)
         {
-            return await _categoryRepository.GetCategoryByIdAsync(id) ?? throw new Exception("Category not found");
+            return await _categoryRepository.GetByIdAsync(id) ?? throw new Exception("Category not found");
         }
     }
 }

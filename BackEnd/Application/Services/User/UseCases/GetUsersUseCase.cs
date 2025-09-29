@@ -8,7 +8,7 @@ namespace Application.Services.User.UseCases
 
         public async Task<IEnumerable<UserEntity>> ExecuteAsync()
         {
-            return await _userRepository.GetUsersAsync();
+            return await _userRepository.GetAllAsync();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Application.Services.User.UseCases
 
         public async Task ExecuteAsync(UpdateUserDto updateUserDto)
         {
-            var userEntity = await _userRepository.GetUserByIdAsync(updateUserDto.Id) ?? throw new Exception("User not found");
+            var userEntity = await _userRepository.GetByIdAsync(updateUserDto.Id) ?? throw new Exception("User not found");
 
             userEntity.Update(
                 updateUserDto.Name ?? userEntity.Name,
@@ -19,7 +19,7 @@ namespace Application.Services.User.UseCases
                 updateUserDto.Password ?? userEntity.Password
             );
 
-            await _userRepository.UpdateUserAsync(userEntity);
+            await _userRepository.UpdateAsync(userEntity);
         }
 
     }

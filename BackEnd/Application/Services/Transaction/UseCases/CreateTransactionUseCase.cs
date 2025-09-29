@@ -16,7 +16,7 @@ namespace Application.Services.Transaction.UseCases
                 createTransactionDto.Type
             );
 
-            await _transactionRepository.AddTransactionAsync(transaction);
+            await _transactionRepository.AddAsync(transaction);
         }
     }
 }

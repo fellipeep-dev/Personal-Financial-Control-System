@@ -8,7 +8,7 @@ namespace Application.Services.Category.UseCases
 
         public async Task<IEnumerable<CategoryEntity>> ExecuteAsync()
         {
-            return await _categoryRepository.GetCategoriesAsync();
+            return await _categoryRepository.GetAllAsync();
         }
     }
 }

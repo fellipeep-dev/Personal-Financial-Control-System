@@ -8,7 +8,7 @@ namespace Application.Services.User.UseCases
 
         public async Task<UserEntity> ExecuteAsync(Guid id)
         {
-            return await _userRepository.GetUserByIdAsync(id) ?? throw new Exception("User not found");
+            return await _userRepository.GetByIdAsync(id) ?? throw new Exception("User not found");
         }
     }
 }
