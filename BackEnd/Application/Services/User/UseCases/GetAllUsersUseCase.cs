@@ -2,7 +2,7 @@ using Domain.User;
 
 namespace Application.Services.User.UseCases
 {
-    public class GetUsersUseCase(IUserRepository userRepository) : IGetUsersUseCase
+    public class GetAllUsersUseCase(IUserRepository userRepository) : IGetAllUsersUseCase
     {
         private readonly IUserRepository _userRepository = userRepository;
 

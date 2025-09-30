@@ -8,7 +8,7 @@ namespace Application.Services.Transaction
         public static IServiceCollection AddTransactionModule(this IServiceCollection services)
         {
             services.AddTransient<ICreateTransactionUseCase, CreateTransactionUseCase>();
-            services.AddTransient<IGetTransactionsUseCase, GetTransactionsUseCase>();
+            services.AddTransient<IGetAllTransactionsUseCase, GetAllTransactionsUseCase>();
             services.AddTransient<IGetTransactionByIdUseCase, GetTransactionByIdUseCase>();
             services.AddTransient<IUpdateTransactionUseCase, UpdateTransactionUseCase>();
             services.AddTransient<IDeleteTransactionUseCase, DeleteTransactionUseCase>();

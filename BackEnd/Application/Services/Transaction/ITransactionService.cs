@@ -1,26 +1,22 @@
 ﻿using Application.Dtos.Transaction;
+using Domain.Interfaces;
 using Domain.Transaction;
 
 namespace Application.Services.Transaction
 {
-    public interface ICreateTransactionUseCase
+    public interface ICreateTransactionUseCase : ICreateUseCase<CreateTransactionDto>
     {
-        Task ExecuteAsync(CreateTransactionDto createTransactionDto);
     }
-    public interface IGetTransactionsUseCase
+    public interface IGetAllTransactionsUseCase : IGetAllUseCase<TransactionEntity>
     {
-        Task<IEnumerable<TransactionEntity>> ExecuteAsync();
     }
-    public interface IGetTransactionByIdUseCase
+    public interface IGetTransactionByIdUseCase : IGetByIdUseCase<TransactionEntity>
     {
-        Task<TransactionEntity> ExecuteAsync(Guid id);
     }
-    public interface IUpdateTransactionUseCase
+    public interface IUpdateTransactionUseCase : IUpdateUseCase<UpdateTransactionDto>
     {
-        Task ExecuteAsync(UpdateTransactionDto updateTransactionDto);
     }
-    public interface IDeleteTransactionUseCase
+    public interface IDeleteTransactionUseCase : IDeleteUseCase
     {
-        Task ExecuteAsync(Guid id);
     }
 }

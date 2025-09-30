@@ -1,26 +1,22 @@
 ﻿using Application.Dtos.Category;
 using Domain.Category;
+using Domain.Interfaces;
 
 namespace Application.Services.Category
 {
-    public interface ICreateCategoryUseCase
+    public interface ICreateCategoryUseCase : ICreateUseCase<CreateCategoryDto>
     {
-        Task ExecuteAsync(CreateCategoryDto createCategoryDto);
     }
-    public interface IGetCategoriesUseCase
+    public interface IGetAllCategoriesUseCase : IGetAllUseCase<CategoryEntity>
     {
-        Task<IEnumerable<CategoryEntity>> ExecuteAsync();
     }
-    public interface IGetCategoryByIdUseCase
+    public interface IGetCategoryByIdUseCase : IGetByIdUseCase<CategoryEntity>
     {
-        Task<CategoryEntity> ExecuteAsync(Guid id);
     }
-    public interface IUpdateCategoryUseCase
+    public interface IUpdateCategoryUseCase : IUpdateUseCase<UpdateCategoryDto>
     {
-        Task ExecuteAsync(UpdateCategoryDto updateCategoryDto);
     }
-    public interface IDeleteCategoryUseCase
+    public interface IDeleteCategoryUseCase : IDeleteUseCase
     {
-        Task ExecuteAsync(Guid id);
     }
 }

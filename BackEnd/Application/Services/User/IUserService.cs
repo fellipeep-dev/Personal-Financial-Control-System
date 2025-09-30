@@ -1,26 +1,22 @@
 using Application.Dtos.User;
+using Domain.Interfaces;
 using Domain.User;
 
 namespace Application.Services.User
 {
-    public interface ICreateUserUseCase
+    public interface ICreateUserUseCase : ICreateUseCase<CreateUserDto>
     {
-        Task ExecuteAsync(CreateUserDto createUserDto);
     }
-    public interface IGetUsersUseCase
+    public interface IGetAllUsersUseCase : IGetAllUseCase<UserEntity>
     {
-        Task<IEnumerable<UserEntity>> ExecuteAsync();
     }
-    public interface IGetUserByIdUseCase
+    public interface IGetUserByIdUseCase : IGetByIdUseCase<UserEntity>
     {
-        Task<UserEntity> ExecuteAsync(Guid id);
     }
-    public interface IUpdateUserUseCase
+    public interface IUpdateUserUseCase : IUpdateUseCase<UpdateUserDto>
     {
-        Task ExecuteAsync(UpdateUserDto updateUserDto);
     }
-    public interface IDeleteUserUseCase
+    public interface IDeleteUserUseCase : IDeleteUseCase
     {
-        Task ExecuteAsync(Guid id);
     }
 }

@@ -8,7 +8,7 @@ namespace Application.Services.Category
         public static IServiceCollection AddCategoryModule(this IServiceCollection services)
         {
             services.AddTransient<ICreateCategoryUseCase, CreateCategoryUseCase>();
-            services.AddTransient<IGetCategoriesUseCase, GetCategoriesUseCase>();
+            services.AddTransient<IGetAllCategoriesUseCase, GetAllCategoriesUseCase>();
             services.AddTransient<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
             services.AddTransient<IUpdateCategoryUseCase, UpdateCategoryUseCase>();
             services.AddTransient<IDeleteCategoryUseCase, DeleteCategoryUseCase>();

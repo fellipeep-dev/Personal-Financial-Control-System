@@ -2,7 +2,7 @@
 
 namespace Application.Services.Transaction.UseCases
 {
-    public class GetTransactionsUseCase(ITransactionRepository transactionRepository) : IGetTransactionsUseCase
+    public class GetAllTransactionsUseCase(ITransactionRepository transactionRepository) : IGetAllTransactionsUseCase
     {
         private readonly ITransactionRepository _transactionRepository = transactionRepository;
 

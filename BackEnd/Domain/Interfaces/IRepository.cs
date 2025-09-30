@@ -1,11 +1,11 @@
 ﻿namespace Domain.Interfaces
 {
-    public interface IRepository<E> where E : class
+    public interface IRepository<TEntity> where TEntity : class
     {
-        Task AddAsync(E entity);
-        Task<IEnumerable<E>> GetAllAsync();
-        Task<E?> GetByIdAsync(Guid id);
-        Task UpdateAsync(E entity);
-        Task DeleteAsync(E entity);
+        Task AddAsync(TEntity entity);
+        Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<TEntity?> GetByIdAsync(Guid id);
+        Task UpdateAsync(TEntity entity);
+        Task DeleteAsync(TEntity entity);
     }
 }

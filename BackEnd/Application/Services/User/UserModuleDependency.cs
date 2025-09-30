@@ -9,7 +9,7 @@ namespace Application.Services.User
         {
             services.AddTransient<ICreateUserUseCase, CreateUserUseCase>();
             services.AddTransient<IGetUserByIdUseCase, GetUserByIdUseCase>();
-            services.AddTransient<IGetUsersUseCase, GetUsersUseCase>();
+            services.AddTransient<IGetAllUsersUseCase, GetAllUsersUseCase>();
             services.AddTransient<IUpdateUserUseCase, UpdateUserUseCase>();
             services.AddTransient<IDeleteUserUseCase, DeleteUserUseCase>();
 

@@ -4,34 +4,34 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Abstractions
 {
-    public class Repository<E>(AppDbContext context) : IRepository<E> where E : class
+    public class Repository<TEntity>(AppDbContext context) : IRepository<TEntity> where TEntity : class
     {
         protected readonly AppDbContext _context = context;
-        protected readonly DbSet<E> _dbSet = context.Set<E>();
+        protected readonly DbSet<TEntity> _dbSet = context.Set<TEntity>();
 
-        public async Task AddAsync(E entity)
+        public async Task AddAsync(TEntity entity)
         {
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<E>> GetAllAsync()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<E?> GetByIdAsync(Guid id)
+        public async Task<TEntity?> GetByIdAsync(Guid id)
         {
             return await _dbSet.FindAsync(id);
         }
 
-        public async Task UpdateAsync(E entity)
+        public async Task UpdateAsync(TEntity entity)
         {
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(E entity)
+        public async Task DeleteAsync(TEntity entity)
         {
             _dbSet.Remove(entity);
             await _context.SaveChangesAsync();
