@@ -4,7 +4,7 @@ namespace Application.Abstractions.UseCases
 {
     public class CreateUseCase<TEntity, TCreateDto>(
         IRepository<TEntity> repository
-    ) : ICreateUseCase<TCreateDto> where TEntity : class, new()
+    ) : ICreateUseCase<TCreateDto> where TEntity : class
     {
         private readonly IRepository<TEntity> _repository = repository;
 

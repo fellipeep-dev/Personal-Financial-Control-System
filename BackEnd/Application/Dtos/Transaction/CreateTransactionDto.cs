@@ -8,8 +8,7 @@ namespace Application.Dtos.Transaction
         [Required(ErrorMessage = "UserId is required")]
         public Guid UserId { get; set; }
 
-        [Required(ErrorMessage = "CategoryId is required")]
-        public Guid CategoryId { get; set; }
+        public Guid? CategoryId { get; set; }
 
         [Required(ErrorMessage = "TotalInCents is required")]
         public int TotalInCents { get; set; }
