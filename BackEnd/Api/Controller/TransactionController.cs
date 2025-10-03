@@ -5,7 +5,7 @@ using Domain.Transaction;
 
 namespace Api.Controller
 {
-    public class TransactionController : ControllerAbstraction
+    public class TransactionController() : ControllerAbstraction
      <
         TransactionEntity,
         CreateTransactionDto,

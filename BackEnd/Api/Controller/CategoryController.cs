@@ -5,7 +5,7 @@ using Domain.Category;
 
 namespace Api.Controller
 {
-    public class CategoryController : ControllerAbstraction
+    public class CategoryController() : ControllerAbstraction
      <
         CategoryEntity,
         CreateCategoryDto,

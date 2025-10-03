@@ -25,7 +25,7 @@ namespace Domain.Category
         public DateTime CreatedAt { get; private set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime UpdatedAt { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
 
         public Guid UserId { get; private set; }
         public UserEntity User { get; private set; }
