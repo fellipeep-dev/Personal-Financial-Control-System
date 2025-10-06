@@ -1,14 +1,15 @@
-﻿using Domain.Transaction;
+﻿using Application.Abstractions.UseCases;
+using Domain.Transaction;
 
 namespace Application.Services.Transaction.UseCases
 {
-    public class DeleteTransactionUseCase(ITransactionRepository transactionRepository) : IDeleteTransactionUseCase
+    public class DeleteTransactionUseCase
+     (
+         ITransactionRepository transactionRepository
+     ) : DeleteUseCase<TransactionEntity>
+     (
+         transactionRepository
+     ), IDeleteTransactionUseCase
     {
-        public async Task ExecuteAsync(Guid id)
-        {
-            var transactionEntity = await transactionRepository.GetByIdAsync(id) ?? throw new Exception("Transaction not found");
-
-            await transactionRepository.DeleteAsync(transactionEntity);
-        }
     }
 }

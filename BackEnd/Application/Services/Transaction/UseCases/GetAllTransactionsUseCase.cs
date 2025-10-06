@@ -1,14 +1,15 @@
-﻿using Domain.Transaction;
+﻿using Application.Abstractions.UseCases;
+using Domain.Transaction;
 
 namespace Application.Services.Transaction.UseCases
 {
-    public class GetAllTransactionsUseCase(ITransactionRepository transactionRepository) : IGetAllTransactionsUseCase
+    public class GetAllTransactionsUseCase
+     (
+         ITransactionRepository transactionRepository
+     ) : GetAllUseCase<TransactionEntity>
+     (
+         transactionRepository
+     ), IGetAllTransactionsUseCase
     {
-        private readonly ITransactionRepository _transactionRepository = transactionRepository;
-
-        public async Task<IEnumerable<TransactionEntity>> ExecuteAsync()
-        {
-            return await _transactionRepository.GetAllAsync();
-        }
     }
 }

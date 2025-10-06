@@ -12,8 +12,8 @@ namespace Application.Services.Transaction.UseCases
             var transactionEntity = await _transactionRepository.GetByIdAsync(updateTransactionDto.Id) ?? throw new Exception("Transaction not found");
 
             transactionEntity.Update(
-                updateTransactionDto.TotalInCents ?? transactionEntity.TotalInCents,
-                updateTransactionDto.Type ?? transactionEntity.Type
+                updateTransactionDto.TotalInCents,
+                updateTransactionDto.Type
             );
 
             await _transactionRepository.UpdateAsync(transactionEntity);

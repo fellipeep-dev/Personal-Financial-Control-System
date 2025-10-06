@@ -1,4 +1,5 @@
 using Application;
+using Application.Profiles;
 using Infrastructure;
 using Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddInfrastructureModule();
 builder.Services.AddApplicationModule();
 builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(typeof(AutoMappingCreate));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
