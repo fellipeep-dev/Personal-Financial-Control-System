@@ -1,22 +1,18 @@
-﻿using Application.Dtos.Transaction;
+﻿using Application.Abstractions.UseCases;
+using Application.Dtos.Transaction;
+using AutoMapper;
 using Domain.Transaction;
 
 namespace Application.Services.Transaction.UseCases
 {
-    public class UpdateTransactionUseCase(ITransactionRepository transactionRepository) : IUpdateTransactionUseCase
+    public class UpdateTransactionUseCase
+     (
+         ITransactionRepository transactionRepository,
+         IMapper mapper
+     ) : UpdateUseCase<TransactionEntity, UpdateTransactionDto>
+     (
+         transactionRepository, mapper
+     ), IUpdateTransactionUseCase
     {
-        private readonly ITransactionRepository _transactionRepository = transactionRepository;
-
-        public async Task ExecuteAsync(UpdateTransactionDto updateTransactionDto)
-        {
-            var transactionEntity = await _transactionRepository.GetByIdAsync(updateTransactionDto.Id) ?? throw new Exception("Transaction not found");
-
-            transactionEntity.Update(
-                updateTransactionDto.TotalInCents,
-                updateTransactionDto.Type
-            );
-
-            await _transactionRepository.UpdateAsync(transactionEntity);
-        }
     }
 }
