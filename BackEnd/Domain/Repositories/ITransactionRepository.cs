@@ -1,6 +1,7 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Entities;
+using Domain.Interfaces;
 
-namespace Domain.Transaction
+namespace Domain.Repositories
 {
     public interface ITransactionRepository : IRepository<TransactionEntity>
     {

@@ -1,6 +1,6 @@
 ﻿using Application.Dtos.Transaction;
 using AutoMapper;
-using Domain.Transaction;
+using Domain.Entities;
 
 namespace Application.Profiles
 {

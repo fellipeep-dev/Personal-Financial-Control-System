@@ -1,31 +1,14 @@
-﻿using Domain.Transaction;
-using Domain.User;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Domain.Entities.Enums;
 
-namespace Domain.Category
+namespace Domain.Entities
 {
-    public enum CategoryType
+    public class CategoryEntity : Entity
     {
-        INCOME,
-        EXPENSE
-    }
-
-    public class CategoryEntity
-    {
-        [Key]
-        public Guid Id { get; private set; }
-
         public string Name { get; private set; }
 
         public int TotalInCents { get; private set; }
 
         public CategoryType Type { get; private set; }
-
-        public DateTime CreatedAt { get; private set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? UpdatedAt { get; private set; }
 
         public Guid UserId { get; private set; }
         public UserEntity User { get; private set; }

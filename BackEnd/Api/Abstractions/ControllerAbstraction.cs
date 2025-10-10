@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Entities;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Abstractions
@@ -21,6 +22,7 @@ namespace Api.Abstractions
         where TGetByIdUseCase : IGetByIdUseCase<TEntity>
         where TUpdateuseCase : IUpdateUseCase<TUpdateDto>
         where TDeleteUseCase : IDeleteUseCase
+        where TEntity : Entity
     {
         [HttpPost("create")]
         public async Task<IActionResult> Create(

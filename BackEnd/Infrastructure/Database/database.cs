@@ -1,6 +1,4 @@
-using Domain.Category;
-using Domain.Transaction;
-using Domain.User;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Database

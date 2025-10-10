@@ -1,29 +1,12 @@
-﻿using Domain.Category;
-using Domain.User;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Domain.Entities.Enums;
 
-namespace Domain.Transaction
+namespace Domain.Entities
 {
-    public enum TransactionType
+    public class TransactionEntity : Entity
     {
-        ENTRY,
-        EXIT
-    }
-
-    public class TransactionEntity
-    {
-        [Key]
-        public Guid Id { get; private set; }
-
         public int TotalInCents { get; private set; }
 
         public TransactionType Type { get; private set; }
-
-        public DateTime CreatedAt { get; private set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? UpdatedAt { get; private set; }
 
         public Guid UserId { get; private set; }
         public UserEntity User { get; private set; }

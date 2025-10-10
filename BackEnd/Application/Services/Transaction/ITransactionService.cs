@@ -1,6 +1,6 @@
 ﻿using Application.Dtos.Transaction;
+using Domain.Entities;
 using Domain.Interfaces;
-using Domain.Transaction;
 
 namespace Application.Services.Transaction
 {

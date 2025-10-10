@@ -1,15 +1,7 @@
-using Domain.Category;
-using Domain.Transaction;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Domain.User
+namespace Domain.Entities
 {
-    public class UserEntity
+    public class UserEntity : Entity
     {
-        [Key]
-        public Guid Id { get; private set; }
-
         public string Name { get; private set; }
 
         public string Email { get; private set; }
@@ -19,11 +11,6 @@ namespace Domain.User
         public DateOnly BirthDate { get; private set; }
 
         public string Password { get; private set; }
-
-        public DateTime CreatedAt { get; private set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? UpdatedAt { get; private set; }
 
         public ICollection<TransactionEntity> Transaction { get; }
 

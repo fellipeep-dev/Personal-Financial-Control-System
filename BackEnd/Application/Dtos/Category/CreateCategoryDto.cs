@@ -1,4 +1,4 @@
-﻿using Domain.Category;
+﻿using Domain.Entities.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace Application.Dtos.Category

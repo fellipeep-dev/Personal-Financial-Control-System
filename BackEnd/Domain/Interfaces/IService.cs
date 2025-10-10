@@ -1,14 +1,16 @@
-﻿namespace Domain.Interfaces
+﻿using Domain.Entities;
+
+namespace Domain.Interfaces
 {
     public interface ICreateUseCase<TCreateDto>
     {
         Task ExecuteAsync(TCreateDto createDto);
     }
-    public interface IGetAllUseCase<TEntity>
+    public interface IGetAllUseCase<TEntity> where TEntity : Entity
     {
         Task<IEnumerable<TEntity>> ExecuteAsync();
     }
-    public interface IGetByIdUseCase<TEntity>
+    public interface IGetByIdUseCase<TEntity> where TEntity : Entity
     {
         Task<TEntity> ExecuteAsync(Guid id);
     }

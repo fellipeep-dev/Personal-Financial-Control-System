@@ -1,4 +1,5 @@
-using Domain.User;
+using Domain.Entities;
+using Domain.Repositories;
 
 namespace Application.Services.User.UseCases
 {

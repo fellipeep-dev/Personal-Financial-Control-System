@@ -1,6 +1,7 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Entities;
+using Domain.Interfaces;
 
-namespace Domain.Category
+namespace Domain.Repositories
 {
     public interface ICategoryRepository : IRepository<CategoryEntity>
     {

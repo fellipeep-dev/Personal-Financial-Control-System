@@ -1,7 +1,7 @@
 using Api.Abstractions;
 using Application.Dtos.User;
 using Application.Services.User;
-using Domain.User;
+using Domain.Entities;
 
 namespace Api.Controller
 {

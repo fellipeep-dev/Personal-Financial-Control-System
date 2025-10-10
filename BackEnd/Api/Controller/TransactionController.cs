@@ -1,7 +1,7 @@
 ﻿using Api.Abstractions;
 using Application.Dtos.Transaction;
 using Application.Services.Transaction;
-using Domain.Transaction;
+using Domain.Entities;
 
 namespace Api.Controller
 {

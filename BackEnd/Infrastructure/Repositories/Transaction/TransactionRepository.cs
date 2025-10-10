@@ -1,4 +1,5 @@
-﻿using Domain.Transaction;
+﻿using Domain.Entities;
+using Domain.Repositories;
 using Infrastructure.Abstractions;
 using Infrastructure.Database;
 

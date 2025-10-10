@@ -1,5 +1,6 @@
 ﻿using Application.Abstractions.UseCases;
-using Domain.Transaction;
+using Domain.Entities;
+using Domain.Repositories;
 
 namespace Application.Services.Transaction.UseCases
 {

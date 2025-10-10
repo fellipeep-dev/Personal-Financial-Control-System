@@ -1,6 +1,7 @@
+using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Domain.User
+namespace Domain.Repositories
 {
     public interface IUserRepository : IRepository<UserEntity>
     {

@@ -1,6 +1,6 @@
 using Application.Dtos.User;
+using Domain.Entities;
 using Domain.Interfaces;
-using Domain.User;
 
 namespace Application.Services.User
 {

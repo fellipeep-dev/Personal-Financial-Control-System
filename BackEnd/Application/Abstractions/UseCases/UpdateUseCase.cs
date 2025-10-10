@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Domain.Entities;
 using Domain.Interfaces;
 
 namespace Application.Abstractions.UseCases
@@ -7,7 +8,7 @@ namespace Application.Abstractions.UseCases
      (
         IRepository<TEntity> repository,
         IMapper mapper
-     ) : IUpdateUseCase<TUpdateDto> where TEntity : class
+     ) : IUpdateUseCase<TUpdateDto> where TEntity : Entity
     {
         private readonly IRepository<TEntity> _repository = repository;
         private readonly IMapper _mapper = mapper;

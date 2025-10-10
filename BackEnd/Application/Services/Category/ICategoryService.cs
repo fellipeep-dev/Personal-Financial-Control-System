@@ -1,5 +1,5 @@
 ﻿using Application.Dtos.Category;
-using Domain.Category;
+using Domain.Entities;
 using Domain.Interfaces;
 
 namespace Application.Services.Category

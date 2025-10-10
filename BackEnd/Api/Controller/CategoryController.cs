@@ -1,7 +1,7 @@
 ﻿using Api.Abstractions;
 using Application.Dtos.Category;
 using Application.Services.Category;
-using Domain.Category;
+using Domain.Entities;
 
 namespace Api.Controller
 {

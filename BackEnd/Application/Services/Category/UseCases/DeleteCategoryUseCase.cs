@@ -1,4 +1,4 @@
-﻿using Domain.Category;
+﻿using Domain.Repositories;
 
 namespace Application.Services.Category.UseCases
 {

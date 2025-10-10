@@ -1,7 +1,8 @@
 ﻿using Application.Abstractions.UseCases;
 using Application.Dtos.Transaction;
 using AutoMapper;
-using Domain.Transaction;
+using Domain.Entities;
+using Domain.Repositories;
 
 namespace Application.Services.Transaction.UseCases
 {

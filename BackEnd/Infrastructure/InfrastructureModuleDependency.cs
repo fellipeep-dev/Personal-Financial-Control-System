@@ -1,6 +1,4 @@
-using Domain.Category;
-using Domain.Transaction;
-using Domain.User;
+using Domain.Repositories;
 using Infrastructure.Repositories.Category;
 using Infrastructure.Repositories.Transaction;
 using Infrastructure.Repositories.User;

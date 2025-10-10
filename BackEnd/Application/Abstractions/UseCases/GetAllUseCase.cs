@@ -1,11 +1,12 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Entities;
+using Domain.Interfaces;
 
 namespace Application.Abstractions.UseCases
 {
     public class GetAllUseCase<TEntity>
      (
         IRepository<TEntity> repository
-     ) : IGetAllUseCase<TEntity> where TEntity : class
+     ) : IGetAllUseCase<TEntity> where TEntity : Entity
     {
         private readonly IRepository<TEntity> _repository = repository;
 

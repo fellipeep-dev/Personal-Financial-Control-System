@@ -1,5 +1,5 @@
 using Application.Dtos.User;
-using Domain.User;
+using Domain.Repositories;
 
 namespace Application.Services.User.UseCases
 {

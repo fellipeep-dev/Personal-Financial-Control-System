@@ -1,6 +1,7 @@
 using Application.Dtos.User;
+using Domain.Entities;
+using Domain.Repositories;
 using Domain.Services.Hash;
-using Domain.User;
 
 namespace Application.Services.User.UseCases
 {
