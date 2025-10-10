@@ -40,11 +40,11 @@ namespace Domain.User
 
         public void Update(string? name, string? email, string? cpf, DateOnly? birthDate, string? password)
         {
-            Name = name;
-            Email = email;
-            Cpf = cpf;
-            BirthDate = birthDate.Value;
-            Password = password;
+            Name = name ?? Name;
+            Email = email ?? Email;
+            Cpf = cpf ?? Cpf;
+            BirthDate = birthDate ?? BirthDate;
+            Password = password ?? Password;
         }
     }
 }

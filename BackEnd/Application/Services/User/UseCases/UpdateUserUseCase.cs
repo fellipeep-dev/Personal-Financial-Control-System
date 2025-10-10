@@ -12,11 +12,11 @@ namespace Application.Services.User.UseCases
             var userEntity = await _userRepository.GetByIdAsync(updateUserDto.Id) ?? throw new Exception("User not found");
 
             userEntity.Update(
-                updateUserDto.Name ?? userEntity.Name,
-                updateUserDto.Email ?? userEntity.Email,
-                updateUserDto.Cpf ?? userEntity.Cpf,
-                updateUserDto.BirthDate ?? userEntity.BirthDate,
-                updateUserDto.Password ?? userEntity.Password
+                updateUserDto.Name,
+                updateUserDto.Email,
+                updateUserDto.Cpf,
+                updateUserDto.BirthDate,
+                updateUserDto.Password
             );
 
             await _userRepository.UpdateAsync(userEntity);
