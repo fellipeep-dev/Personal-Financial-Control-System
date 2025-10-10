@@ -31,8 +31,6 @@ namespace Domain.Transaction
         public Guid? CategoryId { get; private set; }
         public CategoryEntity? Category { get; private set; }
 
-        private TransactionEntity() { }
-
         public TransactionEntity(Guid userId, Guid? categoryId, int totalInCents, TransactionType type)
         {
             UserId = userId;

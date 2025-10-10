@@ -29,8 +29,6 @@ namespace Domain.User
 
         public ICollection<CategoryEntity> Category { get; }
 
-        private UserEntity() { }
-
         public UserEntity(string name, string email, string cpf, DateOnly birthDate, string password)
         {
             Name = name;

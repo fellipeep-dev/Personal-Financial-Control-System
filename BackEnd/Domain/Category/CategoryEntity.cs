@@ -32,8 +32,6 @@ namespace Domain.Category
 
         public ICollection<TransactionEntity> Transaction { get; }
 
-        private CategoryEntity() { }
-
         public CategoryEntity(Guid userId, string name, int totalInCents, CategoryType type)
         {
             UserId = userId;
