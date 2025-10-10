@@ -14,7 +14,7 @@ builder.Services.AddInfrastructureModule();
 builder.Services.AddApplicationModule();
 builder.Services.AddControllers();
 
-builder.Services.AddAutoMapper(typeof(AutoMappingCreate));
+builder.Services.AddAutoMapper(typeof(AutoMapping));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

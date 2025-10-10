@@ -1,23 +1,18 @@
-﻿using Application.Dtos.Category;
+﻿using Application.Abstractions.UseCases;
+using Application.Dtos.Category;
+using AutoMapper;
+using Domain.Entities;
 using Domain.Repositories;
 
 namespace Application.Services.Category.UseCases
 {
-    public class UpdateCategoryUseCase(ICategoryRepository categoryRepository) : IUpdateCategoryUseCase
+    public class UpdateCategoryUseCase(
+         ICategoryRepository categoryRepository,
+         IMapper mapper
+     ) : UpdateUseCase<CategoryEntity, UpdateCategoryDto>
+     (
+         categoryRepository, mapper
+     ), IUpdateCategoryUseCase
     {
-        private readonly ICategoryRepository _categoryRepository = categoryRepository;
-
-        public async Task ExecuteAsync(UpdateCategoryDto updateCategoryDto)
-        {
-            var categoryEntity = await _categoryRepository.GetByIdAsync(updateCategoryDto.Id) ?? throw new Exception("Transaction not found");
-        
-            categoryEntity.Update(
-                updateCategoryDto.Name ?? categoryEntity.Name,
-                updateCategoryDto.TotalInCents ?? categoryEntity.TotalInCents,
-                updateCategoryDto.Type ?? categoryEntity.Type
-            );
-
-            await _categoryRepository.UpdateAsync(categoryEntity);
-        }
     }
 }
