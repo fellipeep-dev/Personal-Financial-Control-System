@@ -1,13 +1,15 @@
 using Application.Dtos.User;
+using AutoMapper;
 using Domain.Entities;
 using Domain.Repositories;
 using Domain.Services.Hash;
 
 namespace Application.Services.User.UseCases
 {
-    public class CreateUserUseCase(IUserRepository userRepository) : ICreateUserUseCase
+    public class CreateUserUseCase(IUserRepository userRepository, IMapper mapper) : ICreateUserUseCase
     {
         private readonly IUserRepository _userRepository = userRepository;
+        private readonly IMapper _mapper = mapper;
 
         public async Task ExecuteAsync(CreateUserDto createUserDto)
         {
@@ -21,15 +23,9 @@ namespace Application.Services.User.UseCases
             if (existingCpf != null)
                 throw new Exception("CPF already in use");
 
-            var passwordHash = PasswordService.HashPassword(createUserDto.Password);
+            var user = _mapper.Map<UserEntity>(createUserDto);
 
-            var user = new UserEntity(
-                createUserDto.Name,
-                createUserDto.Email,
-                createUserDto.Cpf,
-                createUserDto.BirthDate,
-                passwordHash
-            );
+            user.HashPassword(PasswordService.HashPassword(createUserDto.Password));
 
             await _userRepository.AddAsync(user);
         }

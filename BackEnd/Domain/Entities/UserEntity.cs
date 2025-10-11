@@ -33,5 +33,10 @@ namespace Domain.Entities
             BirthDate = birthDate ?? BirthDate;
             Password = password ?? Password;
         }
+
+        public void HashPassword(string hashedPassword)
+        {
+            Password = hashedPassword;
+        }
     }
 }
