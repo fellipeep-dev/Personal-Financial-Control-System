@@ -1,26 +1,19 @@
+using Application.Abstractions.UseCases;
 using Application.Dtos.User;
+using AutoMapper;
+using Domain.Entities;
 using Domain.Repositories;
 
 namespace Application.Services.User.UseCases
 {
-    public class UpdateUserUseCase(IUserRepository userRepository) : IUpdateUserUseCase
+    public class UpdateUserUseCase
+     (
+         IUserRepository userRepository,
+         IMapper mapper
+     ) : UpdateUseCase<UserEntity, UpdateUserDto>
+     (
+         userRepository, mapper
+     ), IUpdateUserUseCase
     {
-        private readonly IUserRepository _userRepository = userRepository;
-
-        public async Task ExecuteAsync(UpdateUserDto updateUserDto)
-        {
-            var userEntity = await _userRepository.GetByIdAsync(updateUserDto.Id) ?? throw new Exception("User not found");
-
-            userEntity.Update(
-                updateUserDto.Name,
-                updateUserDto.Email,
-                updateUserDto.Cpf,
-                updateUserDto.BirthDate,
-                updateUserDto.Password
-            );
-
-            await _userRepository.UpdateAsync(userEntity);
-        }
-
     }
 }
