@@ -2,15 +2,15 @@ using Application.Abstractions.UseCases;
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.Services.User.UseCases
+namespace Application.UseCases.User.DeleteUseCase
 {
-    public class GetAllUsersUseCase
+    public class DeleteUserUseCase
      (
          IUserRepository userRepository
-     ) : GetAllUseCase<UserEntity>
+     ) : DeleteUseCase<UserEntity>
      (
          userRepository
-     ), IGetAllUsersUseCase
+     ), IDeleteUserUseCase
     {
     }
 }

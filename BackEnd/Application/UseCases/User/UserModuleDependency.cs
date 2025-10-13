@@ -1,7 +1,11 @@
-using Application.Services.User.UseCases;
+using Application.UseCases.User.CreateUseCase;
+using Application.UseCases.User.DeleteUseCase;
+using Application.UseCases.User.GetAllUseCase;
+using Application.UseCases.User.GetByIdUseCase;
+using Application.UseCases.User.UpdateUseCase;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.Services.User
+namespace Application.UseCases.User
 {
     public static class UserModuleDependency
     {

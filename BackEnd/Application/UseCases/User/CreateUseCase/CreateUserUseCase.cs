@@ -4,7 +4,7 @@ using Domain.Entities;
 using Domain.Repositories;
 using Domain.Services.Hash;
 
-namespace Application.Services.User.UseCases
+namespace Application.UseCases.User.CreateUseCase
 {
     public class CreateUserUseCase(IUserRepository userRepository, IMapper mapper) : ICreateUserUseCase
     {
