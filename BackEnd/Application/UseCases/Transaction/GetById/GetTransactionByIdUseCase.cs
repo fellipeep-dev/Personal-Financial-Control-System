@@ -1,15 +1,18 @@
 ﻿using Application.Abstractions.UseCases;
 using Domain.Entities;
 using Domain.Repositories;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Application.UseCases.Transaction.GetById
 {
     public class GetTransactionByIdUseCase
      (
-         ITransactionRepository transactionRepository
+         ITransactionRepository transactionRepository,
+         IDistributedCache cache
      ) : GetByIdUseCase<TransactionEntity>
      (
-         transactionRepository
+         transactionRepository,
+         cache
      ), IGetTransactionByIdUseCase
     {
     }
