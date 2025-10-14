@@ -1,15 +1,18 @@
 ﻿using Application.Abstractions.UseCases;
 using Domain.Entities;
 using Domain.Repositories;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Application.UseCases.Transaction.Delete
 {
     public class DeleteTransactionUseCase
      (
-         ITransactionRepository transactionRepository
+         ITransactionRepository transactionRepository,
+         IDistributedCache cache
      ) : DeleteUseCase<TransactionEntity>
      (
-         transactionRepository
+         transactionRepository,
+         cache
      ), IDeleteTransactionUseCase
     {
     }

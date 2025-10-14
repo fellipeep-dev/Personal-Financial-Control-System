@@ -1,15 +1,25 @@
 using Application.Dtos.User;
+using Application.Helpers;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Repositories;
 using Domain.Services.Hash;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Application.UseCases.User.Create
 {
-    public class CreateUserUseCase(IUserRepository userRepository, IMapper mapper) : ICreateUserUseCase
+    public class CreateUserUseCase
+     (
+         IUserRepository userRepository,
+         IMapper mapper,
+         IDistributedCache cache
+     ) : ICreateUserUseCase
     {
         private readonly IUserRepository _userRepository = userRepository;
+        private readonly IDistributedCache _cache = cache;
         private readonly IMapper _mapper = mapper;
+
+        private readonly string _cacheKeyAll = CacheKeyHelper.GetListKey<UserEntity>();
 
         public async Task ExecuteAsync(CreateUserDto createUserDto)
         {
@@ -28,6 +38,8 @@ namespace Application.UseCases.User.Create
             user.HashPassword(PasswordService.HashPassword(createUserDto.Password));
 
             await _userRepository.AddAsync(user);
+
+            await _cache.RemoveAsync(_cacheKeyAll);
         }
     }
 }

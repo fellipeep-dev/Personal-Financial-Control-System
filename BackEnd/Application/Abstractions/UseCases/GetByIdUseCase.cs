@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Helpers;
+using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
@@ -22,7 +23,7 @@ namespace Application.Abstractions.UseCases
 
         public async Task<TEntity?> ExecuteAsync(Guid id)
         {
-            var cacheKey = $"{typeof(TEntity).Name}_{id}";
+            var cacheKey = CacheKeyHelper.GetItemKey<TEntity>(id);
 
             var cachedEntity = await _cache.GetStringAsync(cacheKey);
 

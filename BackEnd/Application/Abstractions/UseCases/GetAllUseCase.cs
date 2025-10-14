@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Helpers;
+using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text.Json;
@@ -13,7 +14,8 @@ namespace Application.Abstractions.UseCases
     {
         private readonly IRepository<TEntity> _repository = repository;
         private readonly IDistributedCache _cache = cache;
-        private readonly string _cacheKeyAll = $"{typeof(TEntity).Name}_List";
+
+        private readonly string _cacheKeyAll = CacheKeyHelper.GetListKey<TEntity>();
 
         private static readonly DistributedCacheEntryOptions CacheOptions = new()
         {
