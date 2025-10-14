@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
 
 namespace Application.Abstractions.UseCases
 {
@@ -27,14 +28,14 @@ namespace Application.Abstractions.UseCases
 
             if(cachedEntity != null)
             {
-                return System.Text.Json.JsonSerializer.Deserialize<TEntity>(cachedEntity);
+                return JsonSerializer.Deserialize<TEntity>(cachedEntity);
             }
 
             var entity = await _repository.GetByIdAsync(id);
 
             if(entity != null)
             {
-                var serializedEntity = System.Text.Json.JsonSerializer.Serialize(entity);
+                var serializedEntity = JsonSerializer.Serialize(entity);
 
                 await _cache.SetStringAsync(cacheKey, serializedEntity, CacheOptions);
             }
