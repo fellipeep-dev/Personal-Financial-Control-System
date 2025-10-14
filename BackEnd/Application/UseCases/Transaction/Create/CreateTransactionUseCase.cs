@@ -4,7 +4,7 @@ using AutoMapper;
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.Services.Transaction.UseCases
+namespace Application.UseCases.Transaction.Create
 {
     public class CreateTransactionUseCase
      (

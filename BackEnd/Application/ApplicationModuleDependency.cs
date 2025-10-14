@@ -1,5 +1,5 @@
-using Application.Services.Category;
-using Application.Services.Transaction;
+using Application.UseCases.Category;
+using Application.UseCases.Transaction;
 using Application.UseCases.User;
 using Microsoft.Extensions.DependencyInjection;
 

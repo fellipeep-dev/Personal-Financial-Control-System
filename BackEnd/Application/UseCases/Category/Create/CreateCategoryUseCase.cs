@@ -4,15 +4,16 @@ using AutoMapper;
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.Services.Category.UseCases
+namespace Application.UseCases.Category.Create
 {
-    public class UpdateCategoryUseCase(
+    public class CreateCategoryUseCase
+     (
          ICategoryRepository categoryRepository,
          IMapper mapper
-     ) : UpdateUseCase<CategoryEntity, UpdateCategoryDto>
+     ) : CreateUseCase<CategoryEntity, CreateCategoryDto>
      (
          categoryRepository, mapper
-     ), IUpdateCategoryUseCase
+     ), ICreateCategoryUseCase
     {
     }
 }

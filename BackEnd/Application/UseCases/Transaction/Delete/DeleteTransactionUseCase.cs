@@ -2,7 +2,7 @@
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.Services.Transaction.UseCases
+namespace Application.UseCases.Transaction.Delete
 {
     public class DeleteTransactionUseCase
      (

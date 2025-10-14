@@ -2,15 +2,14 @@
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.Services.Category.UseCases
+namespace Application.UseCases.Category.GetAll
 {
-    public class GetCategoryByIdUseCase
-     (
+    public class GetAllCategoriesUseCase(
          ICategoryRepository categoryRepository
-     ) : GetByIdUseCase<CategoryEntity>
+     ) : GetAllUseCase<CategoryEntity>
      (
          categoryRepository
-     ), IGetCategoryByIdUseCase
+     ), IGetAllCategoriesUseCase
     {
     }
 }

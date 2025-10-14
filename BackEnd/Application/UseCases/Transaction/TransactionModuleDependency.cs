@@ -1,7 +1,11 @@
-﻿using Application.Services.Transaction.UseCases;
+﻿using Application.UseCases.Transaction.Create;
+using Application.UseCases.Transaction.Delete;
+using Application.UseCases.Transaction.GetAll;
+using Application.UseCases.Transaction.GetById;
+using Application.UseCases.Transaction.Update;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.Services.Transaction
+namespace Application.UseCases.Transaction
 {
     public static class TransactionModuleDependency
     {

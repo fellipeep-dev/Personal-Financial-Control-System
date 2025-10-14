@@ -2,15 +2,15 @@
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.Services.Transaction.UseCases
+namespace Application.UseCases.Transaction.GetById
 {
-    public class GetAllTransactionsUseCase
+    public class GetTransactionByIdUseCase
      (
          ITransactionRepository transactionRepository
-     ) : GetAllUseCase<TransactionEntity>
+     ) : GetByIdUseCase<TransactionEntity>
      (
          transactionRepository
-     ), IGetAllTransactionsUseCase
+     ), IGetTransactionByIdUseCase
     {
     }
 }

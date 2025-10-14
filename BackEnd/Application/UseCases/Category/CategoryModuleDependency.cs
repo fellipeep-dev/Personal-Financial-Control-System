@@ -1,7 +1,11 @@
-﻿using Application.Services.Category.UseCases;
+﻿using Application.UseCases.Category.Create;
+using Application.UseCases.Category.Delete;
+using Application.UseCases.Category.GetAll;
+using Application.UseCases.Category.GetById;
+using Application.UseCases.Category.Update;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.Services.Category
+namespace Application.UseCases.Category
 {
     public static class CategoryModuleDependency
     {
