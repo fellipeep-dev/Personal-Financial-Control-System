@@ -1,6 +1,6 @@
 ﻿using Domain.Interfaces;
 
-namespace Application.UseCases.User.DeleteUseCase
+namespace Application.UseCases.User.Delete
 {
     public interface IDeleteUserUseCase : IDeleteUseCase
     {

@@ -4,7 +4,7 @@ using AutoMapper;
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.UseCases.User.UpdateUseCase
+namespace Application.UseCases.User.Update
 {
     public class UpdateUserUseCase
      (

@@ -2,7 +2,7 @@ using Application.Abstractions.UseCases;
 using Domain.Entities;
 using Domain.Repositories;
 
-namespace Application.UseCases.User.GetAllUseCase
+namespace Application.UseCases.User.GetAll
 {
     public class GetAllUsersUseCase
      (

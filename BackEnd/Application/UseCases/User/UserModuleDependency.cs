@@ -1,8 +1,8 @@
-using Application.UseCases.User.CreateUseCase;
-using Application.UseCases.User.DeleteUseCase;
-using Application.UseCases.User.GetAllUseCase;
-using Application.UseCases.User.GetByIdUseCase;
-using Application.UseCases.User.UpdateUseCase;
+using Application.UseCases.User.Create;
+using Application.UseCases.User.Delete;
+using Application.UseCases.User.GetAll;
+using Application.UseCases.User.GetById;
+using Application.UseCases.User.Update;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.UseCases.User
