@@ -6,9 +6,10 @@ services:
     restart: always
     ports:
       - "5000:5000"
-    env_file:
-      - .env
     environment:
+      POSTGRES_USER: FinUSER
+      POSTGRES_PASSWORD: FinPASS
+      POSTGRES_DB: FinPostgreSqlDB
       ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
       ConnectionStrings__RedisConnection: "redis:6379"
     depends_on:

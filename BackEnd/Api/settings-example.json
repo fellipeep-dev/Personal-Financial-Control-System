@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=FinPostgreSqlDB;Username=FinUSER;Password=<USAR_SENHA_NO_USER_SECRETS>",
+    "RedisConnection": "localhost:6379"
+  }
+}
