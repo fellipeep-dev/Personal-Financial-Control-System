@@ -1,40 +1,16 @@
+using Api.Extensions;
 using Application;
 using Application.Profiles;
-using Infrastructure;
-using Infrastructure.Database;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = builder.Configuration.GetConnectionString("RedisConnection");
-});
-
-builder.Services.AddInfrastructureModule();
+builder.Services.AddDatabase(configuration);
+builder.Services.AddRedisCaching(configuration);
 builder.Services.AddApplicationModule();
 builder.Services.AddControllers();
-
 builder.Services.AddAutoMapper(typeof(AutoMapping));
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Version = "v1",
-        Title = "Person Financy Api",
-        Description = "",
-        Contact = new OpenApiContact
-        {
-            Name = "Fellipe",
-            Email = "fellipeep2005@gmail.com"
-        }
-    });
-});
+builder.Services.AddSwaggerDocumentation();
 
 var app = builder.Build();
 
