@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Abstractions
 {
-    public class Repository<TEntity>(AppDbContext context) : IRepository<TEntity> where TEntity : Entity
+    public abstract class Repository<TEntity>(AppDbContext context) : IRepository<TEntity> where TEntity : Entity
     {
         protected readonly AppDbContext _context = context;
         protected readonly DbSet<TEntity> _dbSet = context.Set<TEntity>();
