@@ -10,12 +10,16 @@ namespace Infrastructure.Repositories.User
     {
         public async Task<UserEntity?> GetUserByCpfAsync(string cpf)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Cpf == cpf);
+            return await _dbSet
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Cpf == cpf);
         }
 
         public async Task<UserEntity?> GetUserByEmailAsync(string email)
         {
-            return await _dbSet.FirstOrDefaultAsync(u => u.Email == email);
+            return await _dbSet
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }
